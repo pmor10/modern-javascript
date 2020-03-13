@@ -216,40 +216,90 @@
 // console.log(val);
 
 // Template Literals
-const name = 'John';
-const age = 30;
-const job = 'Web Developer';
-const city = 'Miami';
-let html;
+// const name = 'John';
+// const age = 30;
+// const job = 'Web Developer';
+// const city = 'Miami';
+// let html;
 
-// Without template strings (es5)
-html = '<ul><li>Name: '+ name + '</li><li>Name: '+ age + '</li><li>Name: '+ job + '</li><li>Name: '+ city + '</li></ul>';
+// // Without template strings (es5)
+// html = '<ul><li>Name: '+ name + '</li><li>Name: '+ age + '</li><li>Name: '+ job + '</li><li>Name: '+ city + '</li></ul>';
 
-html = '<ul>' + 
-        '<li>Name: '+ name + '</li>' + 
-        '<li>Age: '+ age + '</li>' + 
-        '<li>Job: '+ job + '</li>' + 
-        '<li>City: '+ city + '</li>' +
-        '</ul>';
+// html = '<ul>' + 
+//         '<li>Name: '+ name + '</li>' + 
+//         '<li>Age: '+ age + '</li>' + 
+//         '<li>Job: '+ job + '</li>' + 
+//         '<li>City: '+ city + '</li>' +
+//         '</ul>';
 
 
-function hello() {
-    return 'hello';
+// function hello() {
+//     return 'hello';
+// }
+
+// // With template strings (es6)
+// html = `
+//     <ul>
+//         <li>Name: ${name}</li>
+//         <li>Age: ${age}</li>
+//         <li>Job: ${job}</li>
+//         <li>City: ${city}</li>
+//         <li>${2 + 2}</li>
+//         <li>${hello()}</li>
+//         <li>${age > 30 ? 'Over 30' : 'Under 30'}</li>
+//     </ul>
+
+// `;
+
+
+// document.body.innerHTML = html;
+
+
+//Create some arrays
+const numbers = [43, 56, 22, 44, 54, 1, 3];
+const numbers2 = new Array(22, 432, 3, 12, 1);
+const fruit = ['Apple', 'Banana', 'Orange', 'Pear'];
+const mixed = [32, 'Hello', true, undefined, null, {a:1, b:4}, new Date()];
+
+let val;
+
+// Get array length
+val = numbers.length;
+// Check if is array
+val = Array.isArray(numbers);
+// Get Single Value
+val = numbers[3];
+val = numbers[2];
+// Find index of value
+val = numbers.indexOf(56);
+numbers.push(250);
+numbers.shift();
+numbers.reverse();
+
+// Concatenate array
+// val = numbers.concat(numbers2);
+
+// Sorting Arrays
+val = fruit.sort();
+// val = numbers.sort();
+
+// Use the compare function
+// val = numbers.sort(function(x, y) {
+//     return x - y;
+// });
+
+// // Reverse Set
+// val = numbers.sort(function(x,y) {
+//     return y - x;
+//  });
+
+// Find
+function under50(num){
+    return num < 50;
 }
 
-// With template strings (es6)
-html = `
-    <ul>
-        <li>Name: ${name}</li>
-        <li>Age: ${age}</li>
-        <li>Job: ${job}</li>
-        <li>City: ${city}</li>
-        <li>${2 + 2}</li>
-        <li>${hello()}</li>
-        <li>${age > 30 ? 'Over 30' : 'Under 30'}</li>
-    </ul>
+val = numbers.find(under50);
 
-`;
+console.log(numbers);
+console.log(val);
 
-
-document.body.innerHTML = html;
