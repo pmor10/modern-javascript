@@ -1,45 +1,78 @@
-let val;
+// document.getElementById();
+console.log(document.getElementById('task-title'));
 
-// Type properties
-val = document;
-val = document.all;
-val = document.all[0];
-val = document.all[2];
-val = document.all.length;
-val = document.head;
-val = document.body;
-val = document.contentType;
-val = document.domain;
-val = document.URL;
-val = document.characterSet;
-val = document.doctype;
+// Get things from the element
+console.log(document.getElementById('task-title').id);
+console.log(document.getElementById('task-title').class);
 
-val = document.forms;
-val = document.forms[0];
-val = document.forms[0].id;
-val = document.forms[0].method;
-val = document.forms[0].action;
+const taskTitle = document.getElementById('task-title');
 
-val = document.links;
-val = document.links[0];
-val = document.links[0].id;
-val = document.links[0].className;
-val = document.links[0].classList[0];
+// Change Styling
+taskTitle.style.background = '#333';
+taskTitle.style.color = '#fff';
+taskTitle.style.padding = '5px';
 
-val = document.images;
+// Change Content
+taskTitle.textContent = 'Task List';
+taskTitle.innerText= 'My Task';
+taskTitle.innerHTML = '<span style="color:red">Task List</span>';
 
-val = document.scripts;
-val = document.scripts[2].getAttribute('src');
+// document.querySelector()
+console.log(document.querySelector('#task-title'));
 
-let scripts = document.scripts;
+document.querySelector('ul li').style.color = 'blue';
 
-let scriptsArr = Array.form(scripts);
+document.querySelector('li:last-child').style.color = 'red';
+document.querySelector('li:nth-child(3)').style.color = 'yellow';
+document.querySelector('li:nth-child(odd)').style.background = '#ccc';
+document.querySelector('li:nth-child(even)').style.background = '#f4f4f3';
 
-scriptsArr.forEach(function(script){
-    console.log(script.getAttribute('src'));
+// document.getElementsByClassName()
+
+const items = document.getElementsByClassName('collection-item');
+console.log(items);
+console.log(items[0]);
+items[2].style.color = 'red';
+items[3].textContent = 'Hello';
+
+const listItems = document.querySelector('ul').getElementsByClassName('collection-item');
+console.log(listItems);
+
+let lis = document.getElementsByTagName('li');
+console.log(lis);
+console.log(lis[0]);
+lis[0].style.color = 'Blue';
+lis[3].textContent = 'Hello';
+
+// // Convert HTML Collection into array
+lis = Array.from(lis);
+
+lis.reverse();
+
+lis.forEach(function(li, index){
+    console.log(li.className);
+    li.textContent = `${index}: Hello`;
 });
 
+console.log(lis);
 
+// document.querySelectorAll
+const items = document.querySelectorAll('ul.collection li.collection-item');
 
+items.forEach(function(item, index){
+    item.textContent = `${index}: Test`;
+});
 
-console.log(val);
+const liOdd = document.querySelectorAll('li:nth-child(odd)');
+const liEven = document.querySelectorAll('li:nth-child(even)');
+
+liOdd.forEach(function(li, index){
+    li.style.background = '#ccc';
+});
+
+for(let i = 0; i < liEven.length; i++){
+   liEven[i].style.background = 'blue'; 
+}
+
+console.log(items);
+
